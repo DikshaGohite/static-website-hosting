@@ -20,7 +20,7 @@ Simple, We can create 2 S3 buckets main public bucket with contents of the websi
 
 1. Navigate to S3 and choose create bucket, under bucket name create the bucket name same as the website you are hosting in my case (exploringcloud.link)
 ![Main Bucket](main-bucket.PNG)  
-2. Allow this bucket to be publicaly available on the internet, and edit the bucket policy to allow reads on your bucket
+2. Allow this bucket to be publically available on the internet for time being, and edit the bucket policy to allow reads on your bucket
 3. Now scroll to the bottom and create your bucket, once done upload all your files for the static bucket here:
 ![Upload your objects here:](object-upload-snapshot.PNG)
 4. You see properties on the above page, click on that scroll to the bottom of the screen under website hosting select edit, then enable website hosting and at last select index and error document as index.html and error.html respectively before saving changes
@@ -34,16 +34,15 @@ Simple, We can create 2 S3 buckets main public bucket with contents of the websi
 Section 4: Now its time to access our website with Route 53</br>
 1. Now its time to create DNS records (A records), which will allow you to redirect the traffic received to an IPV4 address, in this case our S3 buckets
 2. Navigate to Route 53, click on Hosted zone and click on create records, now you want to route your traffic to the main bucket exploringcloud.link
-3. Keep the record name blank, select A record as the record type
-4.  Route traffic to select a S3 website endpoint in the region where your bucket is located and select the bucket that is automatically displayed in this section
-5. Keep the route policy as simple routing and select no for evaluate health since the website is hosted on s3
+4. Keep the record name blank, select A record as the record type
+5. Route traffic to select a S3 website endpoint in the region where your bucket is located and select the bucket that is automatically displayed in this section
+6. Keep the route policy as simple routing and select no for evaluate health since the website is hosted on s3
 
-The confirguration now should look like this: 
-![]()
+![The confirguration now should look like this: ](route-53-record-1.PNG)
 
 6. Similarly create another record for reroute s3 bucket and this time keep update the record name with www
-7. Rest of the configuration is same, make sure you select the right bucket and now the default configuration should look like this:
-![]()
+7. Rest of the configuration is same, make sure you select the right bucket
+![The confirguration now should look like this:](route-53-record-2.PNG)
 
 Once the second record is created, wait again for several minutes before checking if your website is accessible via the web redirect address:
 
