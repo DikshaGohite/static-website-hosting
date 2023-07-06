@@ -22,7 +22,7 @@ Simple, We can create 2 S3 buckets main public bucket with contents of the websi
 ![Main Bucket](main-bucket.PNG)  
 2. Allow this bucket to be publicaly available on the internet, and edit the bucket policy to allow reads on your bucket
 3. Now scroll to the bottom and create your bucket, once done upload all your files for the static bucket here:
-![Upload your objects here:](object-upload snapshot.PNG)
+![Upload your objects here:](object-upload-snapshot.PNG)
 4. You see permissions on the above page, click on that scroll to the bottom of the screen under website hosting select edit, then enable website hosting and at last select index and error document as index.html and error.html respectively before saving changes
 ![Static Website config:](Static-website-hosting.PNG)
 6. Follow the same steps for your redirection bucket (www.exploringcloud.click) and dont enable public access on this bucket (Note: This is just a redirection bucket, no need of object upload)
