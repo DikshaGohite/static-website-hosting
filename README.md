@@ -82,6 +82,8 @@ Using cloudfront you will be able to deploy your website in HTTPS and get the be
 12. Meanwhile your CF distributions are created head over to your redirect S3 bucket and change the protocol from HTTP to HTTPS
     ![Like this:](CF4.PNG)
 
+Section 7: Lets access our website through cloudfront distribution
+1.
  
 
 
