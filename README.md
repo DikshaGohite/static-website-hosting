@@ -52,15 +52,37 @@ Section 5: Securing the Website
    ![Here](ACM1.PNG)  
 4. Now request a public certificate and click next, when applying for a SSL certificate you are asked to provide a fully qualified domain name
 5. We have 2 FQDN's (www.exploringcloud.link, exploringcloud.link), fill your FQDN under Domain name
-7. Next you choose a validation method, proving that the domain your are creating is your own, I am choosing DNS validation, Now all that is left to done is approving the request.
+7. Next you choose a validation method, proving that the domain your are creating is your own, I am choosing DNS validation, scroll at the  bottom and select Request
   ![Here is a snapshot](ACM2.PNG)
-9. For this you have to add two DNS records of type CNAME in your hosted zone , good news is AWS takes care of all this for you
-10. All you have to this is in Route 53, select "create Records in Route 53" option then select the FQDN's and hit create record
-11. Wait for few minutes now untill you see success status and verify it by moving to your hosted zone
+9. The certificate is created but not yet validated, Now in the configuration of the certificate you have to add two DNS records of type CNAME in your hosted zone , good news is AWS takes care of all this for you
+10. All you have to this is select "create Records in Route 53" option then select the two FQDN's and hit create record
+11. AWS has now filled in the CNAME reords for you, Wait for few minutes now untill you see success status and verify it by moving to your hosted zone
+
 
 Section 6: Create cloudfront distribution:
 Using cloudfront you will be able to deploy your website in HTTPS and get the benefits of Faster access to content using edge locations
 
+1. Naviagate to CloudFront service and select create cloudfront distribution
+2. On the create distribution page, for origin domain name copy the Bucket URL into properties tab, static website hosting section (highlighted in blue):
+   ![here: ](website-url.PNG)
+3. Disbale Origin Shield to avoid any charges.
+4. Now make sure the configuration looks like this:
+   ![hERE:](CF1.PNG)
+5. The default cache behaviour window should look like this and keep remaining settings as default:
+   ![HERE:](CF2.PNG)
+6. Disable WAF security protection to incur any charges
+7. Head over to securuty section and select the price class based on your use case
+8. Fill int the Alternate domain name by inserting your main domain name
+9. In the custom SSL certificates field, select the newly created certificate and leave the legacy client support unselected
+   ![Here:](CF3.PNG)
+
+   Keep all the settings as default, review your changes and create distribution
+10. Similarly create a distribution for redirection bucket and change the origin domain name and Alternate domain name
+11. Your cloud Front distributions will be run up and running in another 5-10 minutes
+12. Meanwhile your CF distributions are created head over to your redirect S3 bucket and change the protocol from HTTP to HTTPS
+    ![Like this:](CF4.PNG)
+
+ 
 
 
 
