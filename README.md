@@ -48,8 +48,18 @@ The confirguration now should look like this:
 Once the second record is created, wait again for several minutes before checking if your website is accessible via the web redirect address:
 
 Section 5: Securing the Website
-1. now you might have noticed that the website says not secure to resolve this we have a simple solution, we can create a SSL certificate for our domain using AWS Certificate Manager 
+1. Now you might have noticed that the website says not secure to resolve this we have a simple solution, we can create a SSL certificate for our domain using AWS Certificate Manager
+2. To request a certificate, navigate to AWS certificate manager and click on the orange button to request certificate.
+3. Now request a public certificate and click next, when applying for a SSL certificate you are asked to provide a fully qualified domain name
+4. We have 2 FQDN's (www.exploringcloud.link, exploringcloud.link), fill your FQDN under Domain name
+5. Next you choose a validation method, proving that the domain your are creating is your own, I am choosing DNS validation, Now all that is left to done is approving the request.
+6. For this you have to add two DNS records of type CNAME in your hosted zone , good news is AWS takes care of all this for you
+7. All you have to this is in Route 53, select "create Records in Route 53" option then select the FQDN's and hit create record
+8. Wait for few minutes now untill you see success status and verify it by moving to your hosted zone
 
-   
+Section 6: Create cloudfront distribution:
+Using cloudfront you will be able to deploy your website in HTTPS and get the benefits of Faster access to content using edge locations
+
+
 
 
