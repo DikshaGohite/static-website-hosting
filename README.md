@@ -19,16 +19,17 @@ Important: Users generally access websites like amazon.com or www.amazon.com, so
 Simple, We can create 2 S3 buckets main public bucket with contents of the website and the other will be a redirection bucket which will redirect the queries to the main bucket
 
 1. Navigate to S3 and choose create bucket, under bucket name create the bucket name same as the website you are hosting in my case (exploringcloud.link)
-![]()  
+![Main Bucket](main-bucket.PNG)  
 2. Allow this bucket to be publicaly available on the internet, and edit the bucket policy to allow reads on your bucket
 3. Now scroll to the bottom and create your bucket, once done upload all your files for the static bucket here:
-![]()
+![Upload your objects here:](object-upload snapshot.PNG)
 4. You see permissions on the above page, click on that scroll to the bottom of the screen under website hosting select edit, then enable website hosting and at last select index and error document as index.html and error.html respectively before saving changes
-5. Follow the same steps for your redirection bucket (www.exploringcloud.click) and dont enable public access on this bucket (Note: This is just a redirection bucket, no need of object upload)
-6. And at last for permission > static website hosting, enable website hosting and this time select redirect request for an object and hostname as your main bucket name
-![]()
-7. Now get the url of both the buckets from here and see if are able to access your website
-![]()
+![Static Website config: ](Static-website-hosting)
+6. Follow the same steps for your redirection bucket (www.exploringcloud.click) and dont enable public access on this bucket (Note: This is just a redirection bucket, no need of object upload)
+7. And at last for permission > static website hosting, enable website hosting and this time select redirect request for an object and hostname as your main bucket name
+![Make sure the configurations look like this ](redirect-hosting.PNG)
+8. Now get the url of both the buckets from here and see if are able to access your website
+![Access this under Buckets> permissios > scroll to the bottom of the page](website-url.PNG)
 
 Section 4: Now its time to access our website with Route 53</br>
 1. Now its time to create DNS records (A records), which will allow you to redirect the traffic received to an IPV4 address, in this case our S3 buckets
