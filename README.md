@@ -83,7 +83,13 @@ Using cloudfront you will be able to deploy your website in HTTPS and get the be
     ![Like this:](CF4.PNG)
 
 Section 7: Lets access our website through cloudfront distribution
-1.
+1. Now its time to finalize our project, head over to route 53 > hosted zone to make changes in A records to route traffic to newly created cloudfront distribution
+2. Select the record you want to edit and a click the < icon on top right corner of the screen
+3. Click edit record and then click  "Route Traffic to" select cloudfront distribution from drop down and select the distribution we created earlier
+4. Rest of the esttings will be default 
+5. Repeat the same steps for the second record and save changes
+
+Its time to make final test, head over to your web browser and verify your website!!!!
  
 
 
